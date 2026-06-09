@@ -1,0 +1,69 @@
+{
+  "info": {
+    "name": "AI Interview Assessment API",
+    "description": "Postman collection for the AI Interview Assessment PoC",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/v1/interview/health"
+      }
+    },
+    {
+      "name": "Analyze Interview (Audio)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "../samples/sample_interview.wav",
+              "description": "Upload MP3, WAV, MP4, or MOV file"
+            }
+          ]
+        },
+        "url": "{{baseUrl}}/api/v1/interview/analyze"
+      }
+    },
+    {
+      "name": "Analyze Interview (Video)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "../samples/sample_interview.mp4",
+              "description": "Upload video file for video presence analysis"
+            }
+          ]
+        },
+        "url": "{{baseUrl}}/api/v1/interview/analyze"
+      }
+    },
+    {
+      "name": "API Root",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/"
+      }
+    }
+  ]
+}

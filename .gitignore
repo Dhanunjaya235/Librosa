@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+dist/
+__pycache__/
+*.py[cod]
+.env
+.venv/
+venv/
+*.egg-info/
+
+# Uploads & temp
+/tmp/
+upload_data/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Models cache
+*.pt
+.cache/
