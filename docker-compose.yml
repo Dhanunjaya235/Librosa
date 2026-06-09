@@ -1,6 +1,10 @@
 services:
   backend:
-    build: ./backend
+    platform: linux/amd64
+    build:
+      context: ./backend
+      platforms:
+        - linux/amd64
     ports:
       - "8010:8010"
     environment:
@@ -10,7 +14,7 @@ services:
       - WHISPER_COMPUTE_TYPE=int8
       - OPENAI_MODEL=gpt-4o-mini
       - UPLOAD_DIR=/tmp/interview_uploads
-      - CORS_ORIGINS=["http://localhost:5173","http://localhost:3000","http://localhost"]
+      - CORS_ORIGINS=["http://localhost:5173","http://localhost:8080","http://localhost"]
     volumes:
       - upload_data:/tmp/interview_uploads
     healthcheck:
@@ -20,9 +24,13 @@ services:
       retries: 3
 
   frontend:
-    build: ./frontend
+    platform: linux/amd64
+    build:
+      context: ./frontend
+      platforms:
+        - linux/amd64
     ports:
-      - "3000:80"
+      - "8080:80"
     depends_on:
       - backend
 

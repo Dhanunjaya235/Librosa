@@ -1,8 +1,11 @@
-FROM python:3.11-slim
+# syntax=docker/dockerfile:1
+
+FROM --platform=linux/amd64 python:3.11-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ffmpeg \
     libsndfile1 \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app

@@ -77,7 +77,7 @@ docker compose up --build
 ```
 
 - API: http://localhost:8000/docs
-- UI: http://localhost:3000
+- UI: http://localhost:8080
 
 ## API
 
